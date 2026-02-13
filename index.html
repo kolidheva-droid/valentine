@@ -53,9 +53,12 @@
       font-size: 2em;
       margin-top: 20px;
       text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    #video, #happyCat {
+    #video {
       display: none;
       margin-top: 30px;
     }
@@ -75,6 +78,12 @@
       50% { opacity: 1; }
       100% { transform: translateY(-10vh) scale(1); opacity: 0; }
     }
+
+    /* Bounce animation for cat */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
   </style>
 </head>
 <body>
@@ -90,10 +99,6 @@
     </video>
   </div>
 
-  <div id="happyCat">
-    <img src="https://media.tenor.com/2nKX2lqkzXAAAAAC/happy-happy-happy-cat.gif" width="300" alt="Happy Cat">
-  </div>
-
   <!-- Floating hearts -->
   <div class="heart" style="left:10%; animation-delay:0s;"></div>
   <div class="heart" style="left:30%; animation-delay:2s;"></div>
@@ -104,9 +109,20 @@
   <script>
     document.getElementById("yesBtn").onclick = function() {
       document.getElementById("message").innerHTML = "Yeayyyyyyy ❤️🎉";
+
+      // Add Happy Cat GIF inline beside the text
+      const catImg = document.createElement("img");
+      catImg.src = "https://media.tenor.com/2nKX2lqkzXAAAAAC/happy-happy-happy-cat.gif";
+      catImg.width = 100;
+      catImg.alt = "Happy Cat";
+      catImg.style.animation = "bounce 1s infinite";
+
+      document.getElementById("message").appendChild(catImg);
+
+      // Show video too
       document.getElementById("video").style.display = "block";
-      document.getElementById("happyCat").style.display = "block";
     };
+
     document.getElementById("noBtn").onclick = function() {
       this.innerHTML = "Yes";
       this.id = "yesBtn";
