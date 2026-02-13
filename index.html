@@ -55,7 +55,7 @@
       text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d;
     }
 
-    #video {
+    #video, #happyCat {
       display: none;
       margin-top: 30px;
     }
@@ -82,11 +82,16 @@
   <button id="yesBtn">Yes</button>
   <button id="noBtn">No</button>
   <h2 id="message"></h2>
+
   <div id="video">
     <video width="400" controls autoplay>
       <source src="dance.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+  </div>
+
+  <div id="happyCat">
+    <img src="https://media.tenor.com/2nKX2lqkzXAAAAAC/happy-happy-happy-cat.gif" width="300" alt="Happy Cat">
   </div>
 
   <!-- Floating hearts -->
@@ -100,6 +105,7 @@
     document.getElementById("yesBtn").onclick = function() {
       document.getElementById("message").innerHTML = "Yeayyyyyyy ❤️🎉";
       document.getElementById("video").style.display = "block";
+      document.getElementById("happyCat").style.display = "block";
     };
     document.getElementById("noBtn").onclick = function() {
       this.innerHTML = "Yes";
